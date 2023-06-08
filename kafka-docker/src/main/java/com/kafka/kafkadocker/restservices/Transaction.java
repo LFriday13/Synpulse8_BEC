@@ -14,7 +14,7 @@ public class Transaction {
     private LocalDate date;
     private String desc;
 
-    public long generateID() {
+    public static long generateID() {
         sequence = sequence + rand.nextInt(100);
         return sequence;
     }
