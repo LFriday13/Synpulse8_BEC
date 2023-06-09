@@ -1,4 +1,4 @@
-package com.kafka.kafkadocker.restservices.config;
+package com.kafka.kafkadocker.restservices;
 
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
@@ -26,10 +26,8 @@ public class Consumer {
 
     @Bean
     ConcurrentKafkaListenerContainerFactory<String, Object> kafkaListenerContainerFactory() {
-
-        ConcurrentKafkaListenerContainerFactory<String, Object> concurrentKafkaListenerContainerFactory = new ConcurrentKafkaListenerContainerFactory();
+        ConcurrentKafkaListenerContainerFactory<String, Object> concurrentKafkaListenerContainerFactory = new ConcurrentKafkaListenerContainerFactory<String, Object>();
         concurrentKafkaListenerContainerFactory.setConsumerFactory(consumerFactory());
-
         return concurrentKafkaListenerContainerFactory;
     }
 

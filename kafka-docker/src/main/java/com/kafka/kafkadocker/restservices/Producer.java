@@ -1,4 +1,4 @@
-package com.kafka.kafkadocker.restservices.config;
+package com.kafka.kafkadocker.restservices;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -17,13 +17,11 @@ import java.util.Map;
 
 @Configuration
 public class Producer {
-
     final KafkaProperties kafkaProperties;
 
     public Producer(KafkaProperties kafkaProperties) {
         this.kafkaProperties = kafkaProperties;
     }
-
 
     @Bean
     public Map<String, Object> producerConfiguration() {
@@ -45,6 +43,11 @@ public class Producer {
 
     @Bean
     public NewTopic topic() {
+        return new NewTopic("P-111_111_1111", 2, (short) 1);
+    }
+
+    @Bean
+    public NewTopic topic(String customer) {
         return new NewTopic("transaction-1", 2, (short) 1);
     }
 }

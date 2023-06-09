@@ -28,7 +28,7 @@ public class Transaction {
         return this;
     }
 
-    public String getIBAN() {
+    public String getIban() {
         return iban;
     }
 

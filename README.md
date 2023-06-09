@@ -1,0 +1,5 @@
+WIP implementation of a REST API returning a list of money account transactions for a specified calendar month for a given customer. We assume that the transactions are stored in a Kafka Topic from which the consumer will parse the values corresponding to a given timeframe by using the offsets. 
+
+The main source for the current application is found withing the com.kafka.kafkadocker package. In particular, the Controller.java class is found withing kafka-docker/src/main/java/com/kafka/kafkadocker/restservices.
+
+The current idea would be to compute the beginning offsets corresponding to the given timeframe of the calendar month and set a consumer assigned to the topic to seek beggining at this offset until the end of the specified timeframe. Ideally, a later implementation would use a Hashmap maping a (topic, partition, month) triple to its corresponding beggining and end offsets for efficient seeking.
